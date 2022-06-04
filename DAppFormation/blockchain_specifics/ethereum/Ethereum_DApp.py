@@ -172,8 +172,8 @@ class Ethereum_DApp:
                 f.write(f"      host: \"{ip}\",\n")
                 f.write("      port: 8545,\n")
                 f.write("      network_id: \"*\",\n")
-                f.write("      gasPrice: 50000000000,\n")
-                f.write("      gas: 90000000,\n")
+                f.write("      gasPrice: 5000000000,\n")
+                f.write("      gas: 3000000,\n")
                 f.write("    }" + finish + "\n")
 
             f.write("  }\n")

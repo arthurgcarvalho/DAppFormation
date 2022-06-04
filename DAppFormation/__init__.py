@@ -12,16 +12,16 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-import DAppFormation.blockchain_specifics.corda.Corda_DApp
+#import DAppFormation.blockchain_specifics.corda.Corda_DApp
 import DAppFormation.blockchain_specifics.couchdb.Couchdb_DApp
 import DAppFormation.blockchain_specifics.empty.Empty_DApp
-import DAppFormation.blockchain_specifics.eos.Eos_DApp
+#import DAppFormation.blockchain_specifics.eos.Eos_DApp
 import DAppFormation.blockchain_specifics.ethereum.Ethereum_DApp
 import DAppFormation.blockchain_specifics.fabric.Fabric_DApp
 import DAppFormation.blockchain_specifics.indy.Indy_DApp
 import DAppFormation.blockchain_specifics.leveldb.Leveldb_DApp
 import DAppFormation.blockchain_specifics.quorum.Quorum_DApp
 import DAppFormation.blockchain_specifics.sawtooth.Sawtooth_DApp
-import DAppFormation.blockchain_specifics.tezos.Tezos_DApp
+#import DAppFormation.blockchain_specifics.tezos.Tezos_DApp
 
 name = "DAppFormation"

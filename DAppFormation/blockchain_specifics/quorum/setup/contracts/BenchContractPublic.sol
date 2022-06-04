@@ -60,7 +60,7 @@ contract BenchContractPublic {
         return 1;
     }
 
-    function invokeDoNothing() public returns(uint) {
+    function invokeDoNothing() public pure returns(uint) {
         return 1;
     }
 
@@ -127,7 +127,7 @@ contract BenchContractPublic {
         return matMult(n);
     }
 
-    function invokeMatrixMultiplication(uint n) public returns(uint) {
+    function invokeMatrixMultiplication(uint n) public pure returns(uint) {
         return matMult(n);
     }
 
