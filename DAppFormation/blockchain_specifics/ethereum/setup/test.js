@@ -171,6 +171,16 @@ async function test(){
     console.log("")
 
 
+    start = Date.now()
+    result = await bench.change_consent()
+    nr = await bench.getBlockNumber()
+    console.log("getTmpPublic:" + result)
+    console.log("elapsed time: " + (Date.now()-start))
+    console.log("")
+    console.log("=======================")
+    console.log("")
+
+
 }
 
 test()

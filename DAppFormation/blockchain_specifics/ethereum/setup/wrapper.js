@@ -54,6 +54,16 @@ class Bench {
     async close(){}
 
 
+    //new function
+    async change_consent() {
+        let returnValue = await this.instance2.change_consent({
+            from: account,
+            gas: 300000000
+        }).catch(err => {return Promise.reject(err)});
+        return Promise.resolve(returnValue.receipt.blockNumber);
+    }
+
+
     async getAccounts()  {
         return new Promise((reject, resolve) => {
             web3.eth.getAccounts((err, res) => {
