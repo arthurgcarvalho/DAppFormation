@@ -139,10 +139,10 @@ class Ethereum_DApp:
             logger.exception(e)
             account = ""
 
-        # logger.debug("Creating config.json for this client")
+        logger.debug("Creating config.json for this client")
         Ethereum_DApp.write_config(client_config, ip, account)
 
-        # logger.debug(f" --> Copying client setup stuff to client {client}, installing packages and truffle and deploying smart contracts")
+        logger.debug(f" --> Copying client setup stuff to client {client}, installing packages and truffle and deploying smart contracts")
         client_scp_clients[client].put(f"{client_config['exp_dir']}/setup", "/home/ubuntu", recursive=True)
         channel = client_ssh_clients[client].get_transport().open_session()
         channel.exec_command(f"(cd setup && . ~/.profile && npm install >> install.log && npm install -g truffle@4.1.16 >> install.log && . ~/.profile && truffle migrate --reset --network node{client % n} >> deploy.log)")

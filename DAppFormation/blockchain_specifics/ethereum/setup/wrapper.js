@@ -58,7 +58,7 @@ class Bench {
     async change_consent() {
         let returnValue = await this.instance2.change_consent({
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue.receipt.blockNumber);
     }
@@ -89,7 +89,7 @@ class Bench {
     async getTmpPublic() {
         let returnValue = await this.instance2.getTmp({
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue)
     }
@@ -98,7 +98,7 @@ class Bench {
     async setTmpPublic(value) {
         let returnValue = await this.instance2.setTmp(value, {
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue.receipt.blockNumber)
     }
@@ -115,7 +115,7 @@ class Bench {
     async queryMatrixMultiplicationPublic(value) {
         let returnValue = await this.instance2.queryMatrixMultiplication(value, {
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue);
     };
@@ -125,7 +125,7 @@ class Bench {
     async invokeMatrixMultiplicationPublic(value) {
         let returnValue = await this.instance2.invokeMatrixMultiplication(value, {
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue.receipt.blockNumber);
     };
@@ -135,7 +135,7 @@ class Bench {
     async setMatrixMultiplicationPublic(value) {
         let returnValue = await this.instance2.setMatrixMultiplication(value, {
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue.receipt.blockNumber);
     };
@@ -152,7 +152,7 @@ class Bench {
      async queryDoNothingPublic() {
         let returnValue = await this.instance2.queryDoNothing({
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue);
     }
@@ -162,7 +162,7 @@ class Bench {
     async invokeDoNothingPublic() {
         let returnValue = await this.instance2.invokeDoNothing({
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue.receipt.blockNumber);
     }
@@ -180,7 +180,7 @@ class Bench {
     async writeDataPublic(key, value) {
         let returnValue = await this.instance2.writeData(key, value, {
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue.receipt.blockNumber);
     }
@@ -197,7 +197,7 @@ class Bench {
      async readDataPublic(key) {
         let returnValue = await this.instance2.readData(key, {
             from: account,
-            gas: 300000000
+            gas: 3000000
         }).catch(err => {return Promise.reject(err)});
         return Promise.resolve(returnValue);
      }
@@ -214,7 +214,7 @@ class Bench {
      async writeMuchDataPublic(len, start, delta) {
          let returnValue = await this.instance2.writeMuchData(parseInt(len, 10), parseInt(start, 10), parseInt(delta, 10), {
              from: account,
-             gas: 300000000
+             gas: 3000000
          }).catch(err => {return Promise.reject(err)});
          return Promise.resolve(returnValue.receipt.blockNumber)
      }
@@ -231,7 +231,7 @@ class Bench {
      async readMuchDataPublic(len, start) {
          let returnValue = await this.instance2.readMuchData(len, start, {
              from: account,
-            gas: 300000000
+            gas: 3000000
          }).catch(err => {return Promise.reject(err)});
          return Promise.resolve(returnValue)
      }
