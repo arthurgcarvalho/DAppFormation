@@ -1,4 +1,4 @@
-pragma solidity 0.6.0;
+pragma solidity 0.4.26;
 
 
 contract BenchContractPublic {
@@ -11,38 +11,6 @@ contract BenchContractPublic {
 
     // new mappings
     mapping(address => uint[]) private patient_provider_map;   // info about consent previously granted
-
-    // new function
-    function change_consent () public {
-
-        bool    found_provider = false;
-        uint256 array_length   = patient_provider_map[msg.sender].length;
-
-        uint  _provider = block.timestamp % 100; //100 providers
-        bool _consent = (block.timestamp % 2 == 0) ? true : false;
-
-        //for all providers who have the consent to access the patient's data
-        for (uint256 index = 0; index < array_length; index++) {
-
-            // if the provider matches what came from the UI
-            if(patient_provider_map[msg.sender][index] == _provider)   {
-
-                if(_consent == false) { //revoke consent                    
-                    patient_provider_map[msg.sender][index] = patient_provider_map[msg.sender][array_length -1];
-                    delete patient_provider_map[msg.sender][array_length -1];
-                    patient_provider_map[msg.sender].length--;
-                }
-                found_provider = true;
-                break;
-            }
-        }
-
-        // adding a new provider to the list
-        if(found_provider == false && _consent == true) {              
-            patient_provider_map[msg.sender].push(_provider);
-        }
-        
-    }
 
     function getTmp() public view returns(uint) {
         return tmp;
