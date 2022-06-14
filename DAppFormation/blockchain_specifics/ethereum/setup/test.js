@@ -34,7 +34,9 @@ async function test(){
     //initializing the contracts
     await bench.init().catch(err => {console.log(err)})
 
-    start = Date.now()
+    //I am only using and testing the WriteData function of the smart contract
+
+   /* start = Date.now()
     result = await bench.queryDoNothingPublic()
     nr = await bench.getBlockNumber()
     console.log("queryDoNothingPublic:" + result)
@@ -106,7 +108,7 @@ async function test(){
     console.log("")
     console.log("=======================")
     console.log("")
-
+*/
     start = Date.now()
     result = await bench.writeDataPublic("Hallo", "Du")
     nr = await bench.getBlockNumber()
@@ -115,7 +117,7 @@ async function test(){
     console.log("")
     console.log("=======================")
     console.log("")
-
+/*
     start = Date.now()
     result = await bench.readDataPublic("Hallo")
     nr = await bench.getBlockNumber()
@@ -180,7 +182,7 @@ async function test(){
     console.log("=======================")
     console.log("")
 
-
+*/
 }
 
 test()

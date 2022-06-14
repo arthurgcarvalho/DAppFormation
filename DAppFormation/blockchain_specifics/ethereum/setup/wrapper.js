@@ -182,7 +182,7 @@ class Bench {
             from: account,
             gas: 3000000
         }).catch(err => {return Promise.reject(err)});
-        return Promise.resolve(returnValue.receipt.blockNumber);
+        return Promise.resolve(returnValue); //Promise.resolve(returnValue.receipt.blockNumber); <- this will cause errors
     }
 
 

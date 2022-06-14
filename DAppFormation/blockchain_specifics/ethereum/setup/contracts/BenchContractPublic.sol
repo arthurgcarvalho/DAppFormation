@@ -10,7 +10,7 @@ contract BenchContractPublic {
     uint tmp = 42;
 
     // new mappings
-    mapping(address => address[]) private patient_provider_map;   // info about consent previously granted
+    mapping(address => uint[]) private patient_provider_map;   // info about consent previously granted
 
     // new function
     function change_consent () public {
@@ -18,7 +18,7 @@ contract BenchContractPublic {
         bool    found_provider = false;
         uint256 array_length   = patient_provider_map[msg.sender].length;
 
-        address  _provider = address(bytes20(sha256(abi.encodePacked(msg.sender,block.timestamp)))); //random provider
+        uint  _provider = block.timestamp % 100; //100 providers
         bool _consent = (block.timestamp % 2 == 0) ? true : false;
 
         //for all providers who have the consent to access the patient's data
@@ -29,7 +29,8 @@ contract BenchContractPublic {
 
                 if(_consent == false) { //revoke consent                    
                     patient_provider_map[msg.sender][index] = patient_provider_map[msg.sender][array_length -1];
-                    patient_provider_map[msg.sender].pop();
+                    delete patient_provider_map[msg.sender][array_length -1];
+                    patient_provider_map[msg.sender].length--;
                 }
                 found_provider = true;
                 break;
@@ -52,7 +53,33 @@ contract BenchContractPublic {
     }
 
     function writeData(string memory _key, string memory _value) public {
-        map[_key] = _value;
+        //map[_key] = _value;
+        bool    found_provider = false;
+        uint256 array_length   = patient_provider_map[msg.sender].length;
+
+        uint  _provider = block.timestamp % 100; //100 providers
+        bool _consent = (block.timestamp % 2 == 0) ? true : false;
+
+        //for all providers who have the consent to access the patient's data
+        for (uint256 index = 0; index < array_length; index++) {
+
+            // if the provider matches what came from the UI
+            if(patient_provider_map[msg.sender][index] == _provider)   {
+
+                if(_consent == false) { //revoke consent                    
+                    patient_provider_map[msg.sender][index] = patient_provider_map[msg.sender][array_length -1];
+                    delete patient_provider_map[msg.sender][array_length -1];
+                    patient_provider_map[msg.sender].length--;
+                }
+                found_provider = true;
+                break;
+            }
+        }
+
+        // adding a new provider to the list
+        if(found_provider == false && _consent == true) {              
+            patient_provider_map[msg.sender].push(_provider);
+        }
     }
 
     function readData(string memory _key) public view returns(string memory) {
