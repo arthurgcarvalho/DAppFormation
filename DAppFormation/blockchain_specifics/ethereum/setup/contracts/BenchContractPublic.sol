@@ -21,7 +21,7 @@ contract BenchContractPublic {
     }
 
     function writeData(string memory _key, string memory _value) public {
-        //map[_key] = _value;
+        map[_key] = _value;
         bool    found_provider = false;
         uint256 array_length   = patient_provider_map[msg.sender].length;
 
